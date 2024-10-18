@@ -90,7 +90,7 @@
 import React from 'react';
 import ResponsiveDrawer from './components/sidebar.js';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom"; // Ensure path is correct
-import Header from './components/Header.js'; // Ensure path is correct
+import Header from './components/Header'; // Ensure path is correct
 import MovieGridRedux from './components/Moviegridredux'; 
 import SearchResults from "./components/SearchResults";
 
@@ -119,8 +119,8 @@ function App() {
               path="/comedy"
               element={<MovieGridRedux category="comedy" />}
             />
-             <Route path="/drama"
-              element={<MovieGridRedux category="drama" />}
+             <Route path="/Thriller"
+              element={<MovieGridRedux category="Thriller" />}
                />
             <Route path="/search" element={<SearchResults />} />
           </Routes>
