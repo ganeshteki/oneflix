@@ -2,7 +2,7 @@
 import React from 'react';
 import ResponsiveDrawer from './components/sidebar.js';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Header from './components/Header';
+import Header from './components/Header.js';
 import MovieGridRedux from './components/Moviegridredux'; 
 import SearchResults from "./components/SearchResults";
 import MovieDetail from './components/MovieDetail'; // Import the MovieDetail component
