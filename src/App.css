@@ -24,10 +24,12 @@
   color: white;
 }
 
+/* Links and buttons */
 .App-link {
   color: #61dafb;
 }
 
+/* Animation */
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -36,3 +38,62 @@
     transform: rotate(360deg);
   }
 }
+
+/* Media queries for responsiveness */
+
+/* Medium screens (tablets and small laptops) */
+@media (max-width: 768px) {
+  .App-header {
+    font-size: calc(9px + 2vmin);
+    padding: 20px;
+    flex-direction: row; /* Stack items horizontally */
+    justify-content: space-between;
+    padding: 10px; /* Reduce padding */
+    min-height: 50px;
+  }
+
+  .App-logo {
+    height: 30vmin;
+    width: 100px; /* Resize the logo */
+    height: auto;
+  }
+  .search-bar {
+    flex-grow: 1; /* Make search bar take available space */
+    margin-left: 10px;
+  }
+}
+
+/* Small screens (mobile devices) */
+@media (max-width: 480px) {
+  .App-header {
+    font-size: calc(8px + 2vmin);
+    padding: 10px;
+  }
+
+  .App-logo {
+    height: 25vmin;
+  }
+  
+  /* Add responsive text size and padding for links */
+  .App-link {
+    font-size: 1.2rem;
+    padding: 10px;
+  }
+}
+/* Adjust sidebar for mobile */
+@media (max-width: 768px) {
+  .MuiDrawer-root {
+    width: 60px; /* Adjust this for a collapsed sidebar */
+    overflow: hidden;
+  }
+
+  .MuiDrawer-root .MuiListItem-root {
+    justify-content: center; /* Center icons if you have any */
+  }
+
+  /* Optionally hide the sidebar completely */
+  .MuiDrawer-root {
+    display: none; /* You can use this to hide the sidebar entirely */
+  }
+}
+

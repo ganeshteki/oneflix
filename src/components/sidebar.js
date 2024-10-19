@@ -1,61 +1,4 @@
-// import React from 'react';
-// import { Drawer, List, ListItem, Button, Typography,mobileOpen,handleDrawerToggle } from '@mui/material';
-// import '@fortawesome/fontawesome-free/css/all.min.css';
 
-// const SidebarWithButton = ({mobileOpen,handleDrawerToggle}) => {
-//   return (
-//     <Drawer variant="temporary"
-//     open={mobileOpen}
-//     onClose={handleDrawerToggle}
-//     ModalProps={{keepMounted:true,}}
-//     sx={{  '& .MuiDrawer-paper': {
-//         width: 180,
-//         backgroundColor: '#2e2f30',color:'white',marginTop:8}}}>
-//       <List>
-//         <ListItem>
-//           <Button variant="contained" sx={{background:'orange',width:'85%'}}>Categories</Button>
-//         </ListItem>
-//         <ListItem>
-//         <i className="fas fa-clapperboard" style={{ fontSize: '15px'}}></i>
-
-
-//           <Button sx={{color:'white'}} >Popular</Button>
-//         </ListItem>
-//         <ListItem>
-//         <i class="fa-solid fa-star"style={{fontSize:'15px'}}></i>
-
-//         <Button  sx={{color:'white'}} >Top Rated</Button>
-
-//         </ListItem>
-//         <ListItem>
-//         <i className="fas fa-sun" style={{ fontSize: '16px'}}></i>
-//         <Button  sx={{color:'white'}}>Upcoming</Button>
-//         </ListItem>
-//         <ListItem>
-//           <Button variant="contained" sx={{background:'orange',width:'85%'}}>Genres</Button>
-//         </ListItem>
-//         <ListItem>
-//         <i className="fas fa-film" style={{ fontSize: '15px'}}></i>   
-//                  <Button  sx={{color:'white'}}>Action</Button>
-//         </ListItem>
-//         <ListItem>
-//         <i className="fas fa-film" style={{ fontSize: '15px' }}></i>   
-//             <Button  sx={{color:'white'}}>Adventure</Button>
-//         </ListItem>
-//         <ListItem>
-//         <i className="fas fa-bug" style={{ fontSize: '15px'}}></i>
-//         <Button  sx={{color:'white'}}>Animation</Button>
-//         </ListItem>
-//         <ListItem>
-//         <i className="fas fa-laugh" style={{ fontSize: '15px'}}></i>
-
-//             <Button  sx={{color:'white'}}>Comedy</Button>
-//         </ListItem>
-//         </List>
-//     </Drawer>
-//   );
-// };
-// export default SidebarWithButton;
 import { useNavigate } from "react-router-dom";
 import {
   Drawer,
@@ -71,69 +14,86 @@ import MovieIcon from "@mui/icons-material/Movie";
 import LocalMoviesIcon from "@mui/icons-material/LocalMovies";
 import TheatersIcon from "@mui/icons-material/Theaters";
 import WhatshotIcon from "@mui/icons-material/Whatshot";
-import DangerousIcon from "@mui/icons-material/Dangerous";
-const drawerWidth = 220;
+import FantasyIcon from "@mui/icons-material/Star"; // Fantasy icon
+import HeartIcon from "@mui/icons-material/Favorite"; // Romance icon
+import ThrillerIcon from "@mui/icons-material/Warning"; // Thriller icon
+import ScienceIcon from "@mui/icons-material/Science"; // Science Fiction icon
+import AnimationIcon from "@mui/icons-material/Animation"; // Animation icon
+import VideoLibraryIcon from "@mui/icons-material/VideoLibrary"; // Documentary icon
 
+const drawerWidth = 220;
 const categories = [
   {
     name: "Popular",
     icon: <WhatshotIcon />,
     path: "/",
-    sx: {
-      backgroundColor: "#2e2b2b",
-      "&:hover": {
-        backgroundColor: "#e0e0e0",
-      },
-      color: "orange",
-    },
+    sx: { backgroundColor: "#2e2b2b", "&:hover": { backgroundColor: "#e0e0e0" }, color: "orange" },
   },
   {
     name: "Action",
     icon: <MovieIcon />,
     path: "/action",
-    sx: {
-      backgroundColor: "#2e2b2b",
-      "&:hover": {
-        backgroundColor: "#f0f0f0",
-      },
-      color: "orange",
-    },
+    sx: { backgroundColor: "#2e2b2b", "&:hover": { backgroundColor: "#f0f0f0" }, color: "orange" },
   },
   {
     name: "Adventure",
     icon: <LocalMoviesIcon />,
     path: "/adventure",
-    sx: {
-      backgroundColor: "#2e2b2b",
-      "&:hover": {
-        backgroundColor: "#f0f0f0",
-      },
-      color: "orange",
-    },
+    sx: { backgroundColor: "#2e2b2b", "&:hover": { backgroundColor: "#f0f0f0" }, color: "orange" },
   },
   {
     name: "Comedy",
     icon: <TheatersIcon />,
     path: "/comedy",
-    sx: {
-      backgroundColor: "#2e2b2b",
-      "&:hover": {
-        backgroundColor: "#f0f0f0",
-      },
-      color: "orange",
-    },
+    sx: { backgroundColor: "#2e2b2b", "&:hover": { backgroundColor: "#f0f0f0" }, color: "orange" },
   },
   {
-    name: "Thriller ",
-    icon: <DangerousIcon />,
-    path: "/",
-    sx: {
-      backgroundColor: "#2e2b2b",
-      "&:hover": {
-        backgroundColor: "#e0e0e0",
-      },
-      color: "orange",
-    },
+    name: "Drama",
+    icon: <LocalMoviesIcon />,
+    path: "/drama",
+    sx: { backgroundColor: "#2e2b2b", "&:hover": { backgroundColor: "#f0f0f0" }, color: "orange" },
+  },
+  {
+    name: "Horror",
+    icon: <LocalMoviesIcon />,
+    path: "/horror",
+    sx: { backgroundColor: "#2e2b2b", "&:hover": { backgroundColor: "#f0f0f0" }, color: "orange" },
+  },
+  {
+    name: "Fantasy",
+    icon: <FantasyIcon />,
+    path: "/fantasy",
+    sx: { backgroundColor: "#2e2b2b", "&:hover": { backgroundColor: "#f0f0f0" }, color: "orange" },
+  },
+  {
+    name: "Romance",
+    icon: <HeartIcon />,
+    path: "/romance",
+    sx: { backgroundColor: "#2e2b2b", "&:hover": { backgroundColor: "#f0f0f0" }, color: "orange" },
+  },
+  {
+    name: "Thriller",
+    icon: <ThrillerIcon />,
+    path: "/thriller",
+    sx: { backgroundColor: "#2e2b2b", "&:hover": { backgroundColor: "#f0f0f0" }, color: "orange" },
+  },
+  {
+    name: "Science Fiction",
+    icon: <ScienceIcon />,
+    path: "/science-fiction",
+    sx: { backgroundColor: "#2e2b2b", "&:hover": { backgroundColor: "#f0f0f0" }, color: "orange" },
+  },
+  {
+    name: "Animation",
+    icon: <AnimationIcon />,
+    path: "/animation",
+    sx: { backgroundColor: "#2e2b2b", "&:hover": { backgroundColor: "#f0f0f0" }, color: "orange" },
+  },
+  {
+    name: "Documentary",
+    icon: <VideoLibraryIcon />,
+    path: "/documentary",
+    sx: { backgroundColor: "#2e2b2b", "&:hover": { backgroundColor: "#f0f0f0" }, color: "orange" },
   },
 ];
 

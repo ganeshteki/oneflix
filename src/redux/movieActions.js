@@ -1,54 +1,12 @@
-// import axios from "axios";
-
-// const API_KEY = "2322c5053c8f34baff2a2d2aa512f228"; // Replace with your actual TMDB API key
-// const API_BASE_URL = "https://api.themoviedb.org/3";
-
-// export const fetchMovies = () => async (dispatch) => {
-//   try {
-//     const response = await axios.get(
-//       `${API_BASE_URL}/movie/popular?api_key=${API_KEY}&language=en-US&page=1`
-//     );
-//     dispatch({ type: "SET_MOVIES", payload: response.data.results });
-//   } catch (error) {
-//     console.error("Error fetching movies:", error);
-//   }
-// };
-// // Existing fetchMovies action remains unchanged
-
-// export const addMovie = (movie) => {
-//   return {
-//     type: "ADD_MOVIE",
-//     payload: movie,
-//   };
-// };
-
-// export const removeMovie = (movieId) => {
-//   return {
-//     type: "REMOVE_MOVIE",
-//     payload: movieId,
-//   };
-// };
-
-// export const updateMovie = (movie) => {
-//   return {
-//     type: "UPDATE_MOVIE",
-//     payload: movie,
-//   };
-// };
-
-// export const clearMovies = () => {
-//   return {
-//     type: "CLEAR_MOVIES",
-//   };
-// };
 import axios from "axios";
 
-const API_KEY = "2322c5053c8f34baff2a2d2aa512f228";// Replace with your actual TMDB API key
+const API_KEY = "2322c5053c8f34baff2a2d2aa512f228"; // Replace with your actual TMDB API key
 const API_BASE_URL = "https://api.themoviedb.org/3";
 
 // redux/movieActions.js
 
 export const fetchMovies = (category) => async (dispatch) => {
+  dispatch({ type: "SET_LOADING" }); // Start loading before fetching data
   try {
     let endpoint;
     switch (category) {
@@ -61,8 +19,29 @@ export const fetchMovies = (category) => async (dispatch) => {
       case "comedy":
         endpoint = "/discover/movie?with_genres=35";
         break;
-      case "Thriller":
-        endpoint = "/discover/movie?with_genres=53";
+      case "drama":
+        endpoint = "/discover/movie?with_genres=18"; // Genre ID for Drama
+        break;
+      case "horror":
+        endpoint = "/discover/movie?with_genres=27"; // Genre ID for Horror
+        break;
+      case "fantasy":
+        endpoint = "/discover/movie?with_genres=14"; // Genre ID for Fantasy
+        break;
+      case "romance":
+        endpoint = "/discover/movie?with_genres=10749"; // Genre ID for Romance
+        break;
+      case "thriller":
+        endpoint = "/discover/movie?with_genres=53"; // Genre ID for Thriller
+        break;
+      case "science-fiction":
+        endpoint = "/discover/movie?with_genres=878"; // Genre ID for Science Fiction
+        break;
+      case "animation":
+        endpoint = "/discover/movie?with_genres=16"; // Genre ID for Animation
+        break;
+      case "documentary":
+        endpoint = "/discover/movie?with_genres=99"; // Genre ID for Documentary
         break;
       case "popular":
       default:
@@ -82,11 +61,13 @@ export const fetchMovies = (category) => async (dispatch) => {
       payload: { category, movies: response.data.results },
     });
   } catch (error) {
-    console.error(`Error fetching ${category} movies:`,error);
+    console.error(`Error fetching ${category} movies:`, error);
+    dispatch({ type: "SET_ERROR", payload: error.message }); // Set error state
   }
 };
 
 export const searchMovies = (query) => async (dispatch) => {
+  dispatch({ type: "SET_LOADING" }); // Start loading before fetching data
   try {
     const response = await axios.get(`${API_BASE_URL}/search/movie`, {
       params: {
@@ -99,5 +80,48 @@ export const searchMovies = (query) => async (dispatch) => {
     dispatch({ type: "SET_SEARCH_RESULTS", payload: response.data.results });
   } catch (error) {
     console.error(`Error searching movies:`, error);
+    dispatch({ type: "SET_ERROR", payload: error.message }); // Set error state
+  }
+};
+
+export const fetchMovieDetail = (id) => async (dispatch) => {
+  dispatch({ type: "SET_LOADING" }); // Start loading before fetching data
+  try {
+    const response = await axios.get(`${API_BASE_URL}/movie/${id}`, {
+      params: {
+        api_key: API_KEY,
+        language: "en-US",
+      },
+    });
+    const trailerResponse = await axios.get(`${API_BASE_URL}/movie/${id}/videos`, {
+      params: {
+        api_key: API_KEY,
+        language: "en-US",
+      },
+    });
+
+    const trailer = trailerResponse.data.results[0]?.key; // Get the first trailer key
+    dispatch({
+      type: "SET_MOVIE_DETAIL",
+      payload: { movieDetail: { ...response.data, trailer } },
+    });
+  } catch (error) {
+    console.error(`Error fetching movie details:`, error);
+    dispatch({ type: "SET_ERROR", payload: error.message }); // Set error state
+  }
+};
+export const fetchWatchProviders = (movieId) => async (dispatch) => {
+  try {
+    const response = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/watch/providers`, {
+      params: {
+        api_key: API_KEY,
+      },
+    });
+    dispatch({
+      type: "SET_WATCH_PROVIDERS",
+      payload: response.data.results,
+    });
+  } catch (error) {
+    console.error("Error fetching watch providers:", error);
   }
 };
