@@ -6,14 +6,14 @@ import Header from './components/header.js';
 import MovieGridRedux from './components/Moviegridredux'; 
 import SearchResults from "./components/SearchResults";
 import MovieDetail from './components/MovieDetail'; // Import the MovieDetail component
-
+import './App.css';
 function App() {
   return (
     <Router>
-      <div>
+      <div className="App">
         <Header />
         <ResponsiveDrawer />
-        <main style={{ marginLeft: "240px", marginTop: "64px", padding: "20px" }}>
+        <main style={{ marginLeft: "220px", marginTop: "34px", padding: "10px" }}>
           <Routes>
             <Route path="/" element={<MovieGridRedux category="popular" />} />
             <Route path="/action" element={<MovieGridRedux category="action" />} />

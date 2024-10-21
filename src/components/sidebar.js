@@ -27,73 +27,73 @@ const categories = [
     name: "Popular",
     icon: <WhatshotIcon />,
     path: "/",
-    sx: { backgroundColor: "#2e2b2b", "&:hover": { backgroundColor: "#e0e0e0" }, color: "orange" },
+    sx: { backgroundColor: "#201a1a", "&:hover": { backgroundColor: "#e0e0e0" }, color: "orange" },
   },
   {
     name: "Action",
     icon: <MovieIcon />,
     path: "/action",
-    sx: { backgroundColor: "#2e2b2b", "&:hover": { backgroundColor: "#f0f0f0" }, color: "orange" },
+    sx: { backgroundColor: "#201a1ab", "&:hover": { backgroundColor: "#f0f0f0" }, color: "orange" },
   },
   {
     name: "Adventure",
     icon: <LocalMoviesIcon />,
     path: "/adventure",
-    sx: { backgroundColor: "#2e2b2b", "&:hover": { backgroundColor: "#f0f0f0" }, color: "orange" },
+    sx: { backgroundColor: "#201a1a", "&:hover": { backgroundColor: "#f0f0f0" }, color: "orange" },
   },
   {
     name: "Comedy",
     icon: <TheatersIcon />,
     path: "/comedy",
-    sx: { backgroundColor: "#2e2b2b", "&:hover": { backgroundColor: "#f0f0f0" }, color: "orange" },
+    sx: { backgroundColor: "#201a1a", "&:hover": { backgroundColor: "#f0f0f0" }, color: "orange" },
   },
   {
     name: "Drama",
     icon: <LocalMoviesIcon />,
     path: "/drama",
-    sx: { backgroundColor: "#2e2b2b", "&:hover": { backgroundColor: "#f0f0f0" }, color: "orange" },
+    sx: { backgroundColor: "#201a1a", "&:hover": { backgroundColor: "#f0f0f0" }, color: "orange" },
   },
   {
     name: "Horror",
     icon: <LocalMoviesIcon />,
     path: "/horror",
-    sx: { backgroundColor: "#2e2b2b", "&:hover": { backgroundColor: "#f0f0f0" }, color: "orange" },
+    sx: { backgroundColor: "#201a1a", "&:hover": { backgroundColor: "#f0f0f0" }, color: "orange" },
   },
   {
     name: "Fantasy",
     icon: <FantasyIcon />,
     path: "/fantasy",
-    sx: { backgroundColor: "#2e2b2b", "&:hover": { backgroundColor: "#f0f0f0" }, color: "orange" },
+    sx: { backgroundColor: "#201a1a", "&:hover": { backgroundColor: "#f0f0f0" }, color: "orange" },
   },
   {
     name: "Romance",
     icon: <HeartIcon />,
     path: "/romance",
-    sx: { backgroundColor: "#2e2b2b", "&:hover": { backgroundColor: "#f0f0f0" }, color: "orange" },
+    sx: { backgroundColor: "#201a1a", "&:hover": { backgroundColor: "#f0f0f0" }, color: "orange" },
   },
   {
     name: "Thriller",
     icon: <ThrillerIcon />,
     path: "/thriller",
-    sx: { backgroundColor: "#2e2b2b", "&:hover": { backgroundColor: "#f0f0f0" }, color: "orange" },
+    sx: { backgroundColor: "#201a1a", "&:hover": { backgroundColor: "#f0f0f0" }, color: "orange" },
   },
   {
     name: "Science Fiction",
     icon: <ScienceIcon />,
     path: "/science-fiction",
-    sx: { backgroundColor: "#2e2b2b", "&:hover": { backgroundColor: "#f0f0f0" }, color: "orange" },
+    sx: { backgroundColor: "#201a1a", "&:hover": { backgroundColor: "#f0f0f0" }, color: "orange" },
   },
   {
     name: "Animation",
     icon: <AnimationIcon />,
     path: "/animation",
-    sx: { backgroundColor: "#2e2b2b", "&:hover": { backgroundColor: "#f0f0f0" }, color: "orange" },
+    sx: { backgroundColor: "#201a1a", "&:hover": { backgroundColor: "#f0f0f0" }, color: "orange" },
   },
   {
     name: "Documentary",
     icon: <VideoLibraryIcon />,
     path: "/documentary",
-    sx: { backgroundColor: "#2e2b2b", "&:hover": { backgroundColor: "#f0f0f0" }, color: "orange" },
+    sx: { backgroundColor: "#201a1a", "&:hover": { backgroundColor: "#f0f0f0" }, color: "orange" },
   },
 ];
 
@@ -149,7 +149,7 @@ function ResponsiveDrawer() {
         "& .MuiDrawer-paper": {
           boxSizing: "border-box",
           width: drawerWidth,
-          backgroundColor: "#2e2b2b", // Background color for the sidebar
+          backgroundColor: "#201a1a", // Background color for the sidebar
         },
       }}
       open

@@ -99,13 +99,13 @@ export default function Header() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="fixed" sx={{ backgroundColor: '#2e2b2b', height: 68 }}>
+      <AppBar position="fixed" sx={{ backgroundColor: '#201a1a', height: 68 }}>
         <Toolbar sx={{ justifyContent: 'space-between' }}>
           <Typography
             variant="h3"
             noWrap
             component="div"
-            sx={{ flexGrow: 1, paddingLeft: 65, display: { xs: 'none', sm: 'block', color: 'orange', fontWeight: 700, fontSize: '40px' } }}
+            sx={{ flexGrow: 1, paddingLeft: 65, display: { xs: 'none', sm: 'block', color: 'orange', fontWeight: 700, fontSize: '40px',marginRight:300 } }}
           >
             ONEFLIX
           </Typography>
